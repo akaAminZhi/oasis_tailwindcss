@@ -12,19 +12,33 @@ function Table({ children, columns }) {
 
 function Row({ children }) {
   const { columns } = useContext(tableConext);
-  const styleRow = `grid grid-cols-[${columns}] gap-1 items-center  border  px-2 py-3 font-semibold`;
-  return <div className={styleRow}>{children}</div>;
+  //   const styleRow = `grid grid-cols-[${columns}] gap-1 items-center  border  px-2 py-3 font-semibold`;
+
+  const styleRow = `grid  gap-1 items-center  border  px-2 py-3 font-semibold`;
+  return (
+    <div
+      style={{ gridTemplateColumns: columns }}
+      className={styleRow + " last:border-0"}
+    >
+      {children}
+    </div>
+  );
 }
 
 function Header({ children }) {
   const { columns } = useContext(tableConext);
-
-  const styleHeader = `grid grid-cols-[${columns}] gap-1 items-center  border  px-2 py-3 font-semibold gap-1 items-center bg-stone-50  border-stone-100 uppercase text-stone-600 tracking-wide`;
-  return <div className={styleHeader}>{children}</div>;
+  const styleHeader = `grid  gap-1 items-center  border  px-2 py-3 font-semibold gap-1 items-center bg-stone-50  border-stone-100 uppercase text-stone-600 tracking-wide`;
+  return (
+    <header style={{ gridTemplateColumns: columns }} className={styleHeader}>
+      {children}
+    </header>
+  );
 }
 
-function Body({ children }) {
-  return <section className="my-1 mx-0">{children}</section>;
+function Body({ data, render }) {
+  if (!data.length)
+    return <p className="text-center">Do not have any data at this motent</p>;
+  return <section className="my-1 mx-0">{data.map(render)}</section>;
 }
 
 function Footer({ children }) {

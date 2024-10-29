@@ -10,5 +10,5 @@ export function useCabins() {
     queryKey: ["cabins"],
     queryFn: getCabins,
   });
-  return { isPending, cabins };
+  return { isPending, cabins, error };
 }
