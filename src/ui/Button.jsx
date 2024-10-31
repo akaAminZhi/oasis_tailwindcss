@@ -19,7 +19,7 @@ function Button({
 
   return (
     <button
-      className={` rounded shadow-sm border-none
+      className={` rounded shadow-sm border-none disabled:cursor-not-allowed
         ${sizes[size]}
         ${variations[variation]} `}
       {...props}

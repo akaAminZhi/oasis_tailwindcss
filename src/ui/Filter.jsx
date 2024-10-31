@@ -10,6 +10,7 @@ function Filter({ filterFiled, options }) {
   const selectValue = searchParams.get(filterFiled);
   function handleClick(value) {
     searchParams.set(filterFiled, value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
     setSearchPatams(searchParams);
   }
 
