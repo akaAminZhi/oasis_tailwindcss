@@ -13,6 +13,7 @@ import Users from "./pages/Users";
 import Settings from "./pages/Settings";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
+import ProtectedRoute from "./ui/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
 import Checkin from "./pages/Checkin";
 
@@ -29,7 +30,13 @@ function App() {
       <ReactQueryDevtools buttonPosition="bottom-left" initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout></AppLayout>}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout></AppLayout>
+              </ProtectedRoute>
+            }
+          >
             <Route
               index
               element={<Navigate replace to="dashboard"></Navigate>}
