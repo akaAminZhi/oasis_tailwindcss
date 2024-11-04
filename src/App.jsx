@@ -52,7 +52,6 @@ function App() {
               path="checkin/:bookingId"
               element={<Checkin></Checkin>}
             ></Route>
-
             <Route path="account" element={<Account></Account>}></Route>
             <Route path="cabins" element={<Cabins></Cabins>}></Route>
             <Route path="users" element={<Users></Users>}></Route>

@@ -4,7 +4,7 @@ import Header from "./Header";
 
 function AppLayout() {
   return (
-    <div className="grid grid-cols-[20rem_1fr] grid-rows-[auto_1fr] h-screen">
+    <div className="grid grid-cols-[15rem_1fr] grid-rows-[auto_1fr] h-screen">
       <Header></Header>
       <Sidebar></Sidebar>
       <main className="px-3 py-4 bg-stone-100 overflow-y-auto overflow-x-auto">

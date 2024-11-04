@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Button from "../../ui/Button";
-import Spinner from "../../ui/Spinner";
 
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
@@ -8,8 +6,8 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import { useLogin } from "./useLogin";
 
 function LoginForm() {
-  const [email, setEmail] = useState("akamin@example.com");
-  const [password, setPassword] = useState("test");
+  const [email, setEmail] = useState("akaqin@example.com");
+  const [password, setPassword] = useState("12345678");
   const { login, isLoging } = useLogin();
   function handleSubmit(e) {
     e.preventDefault();
