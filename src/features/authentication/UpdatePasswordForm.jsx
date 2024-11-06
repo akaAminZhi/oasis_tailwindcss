@@ -13,7 +13,7 @@ function UpdatePasswordForm() {
   const { updateUser, isUpdating } = useUpdateUser();
 
   function onSubmit({ password }) {
-    updateUser({ password }, { onSuccess: reset });
+    updateUser({ password }, { onSuccess: () => reset() });
   }
 
   return (
@@ -22,7 +22,8 @@ function UpdatePasswordForm() {
         label="Password (min 8 characters)"
         error={errors?.password?.message}
       >
-        <Input
+        <input
+          className="border border-gray-300 bg-gray-50 rounded-md py-2 px-4 shadow-md"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -41,7 +42,8 @@ function UpdatePasswordForm() {
         label="Confirm password"
         error={errors?.passwordConfirm?.message}
       >
-        <Input
+        <input
+          className="border border-gray-300 bg-gray-50 rounded-md py-2 px-4 shadow-md"
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"

@@ -1,5 +1,5 @@
 import UpdateUserDataForm from "../features/authentication/UpdateUserDataForm";
-// import UpdatePasswordForm from "../features/authentication/UpdatePasswordForm";
+import UpdatePasswordForm from "../features/authentication/UpdatePasswordForm";
 
 import Row from "../ui/Row";
 function Account() {
@@ -8,7 +8,7 @@ function Account() {
       <Row>
         <UpdateUserDataForm></UpdateUserDataForm>
       </Row>
-      <Row>{/* <UpdatePasswordForm></UpdatePasswordForm> */}</Row>
+      <Row>{<UpdatePasswordForm></UpdatePasswordForm>}</Row>
     </>
   );
 }
