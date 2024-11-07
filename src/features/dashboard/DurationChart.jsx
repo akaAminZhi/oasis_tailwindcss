@@ -1,22 +1,31 @@
-import styled from "styled-components";
+// import styled from "styled-components";
 
-const ChartBox = styled.div`
-  /* Box */
-  background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
-  border-radius: var(--border-radius-md);
+import {
+  Cell,
+  Legend,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
 
-  padding: 2.4rem 3.2rem;
-  grid-column: 3 / span 2;
+// const ChartBox = styled.div`
+//   /* Box */
+//   background-color: var(--color-grey-0);
+//   border: 1px solid var(--color-grey-100);
+//   border-radius: var(--border-radius-md);
 
-  & > *:first-child {
-    margin-bottom: 1.6rem;
-  }
+//   padding: 2.4rem 3.2rem;
+//   grid-column: 3 / span 2;
 
-  & .recharts-pie-label-text {
-    font-weight: 600;
-  }
-`;
+//   & > *:first-child {
+//     margin-bottom: 1.6rem;
+//   }
+
+//   & .recharts-pie-label-text {
+//     font-weight: 600;
+//   }
+// `;
 
 const startDataLight = [
   {
@@ -130,3 +139,42 @@ function prepareData(startData, stays) {
 
   return data;
 }
+function DurationChart({ comfirmedStays }) {
+  const data = prepareData(startDataLight, comfirmedStays);
+  return (
+    <div className="bg-gray-50 border border-gray-100 rounded-md py-4 px-6 col-start-3 col-end-5">
+      <h2>Stay duration summary</h2>
+      <ResponsiveContainer>
+        <PieChart>
+          <Pie
+            innerRadius={80}
+            outerRadius={120}
+            paddingAngle={3}
+            data={data}
+            dataKey={"value"}
+            nameKey={"duration"}
+          >
+            {data.map((entry) => (
+              <Cell
+                fill={entry.color}
+                key={entry.duration}
+                stroke={entry.color}
+              ></Cell>
+            ))}
+          </Pie>
+          <Tooltip></Tooltip>
+          <Legend
+            verticalAlign="middle"
+            align="right"
+            width="30%"
+            layout="vertical"
+            iconSize={15}
+            iconType="circle"
+          ></Legend>
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+export default DurationChart;

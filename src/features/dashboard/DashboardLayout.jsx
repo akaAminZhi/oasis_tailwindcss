@@ -3,6 +3,8 @@ import Spinner from "../../ui/Spinner";
 import { useRecentStays } from "./useRecentStays";
 import Stats from "./Stats";
 import { useCabins } from "../cabins/useCabins";
+import SalesChart from "./SalesChart";
+import DurationChart from "./DurationChart";
 
 function DashboardLayout() {
   const { bookings, isPending } = useRecentBooking();
@@ -19,7 +21,7 @@ function DashboardLayout() {
   // console.log(comfirmedStays);
 
   return (
-    <div className="grid grid-cols-[1fr_1fr_1fr_1fr] grid-row-[auto_20rem_auto] gap-2">
+    <div className="grid grid-cols-[1fr_1fr_1fr_1fr] grid-rows-[auto_20rem_auto] gap-2">
       <Stats
         bookings={bookings}
         comfirmedStays={comfirmedStays}
@@ -27,8 +29,8 @@ function DashboardLayout() {
         numDays={numberDays}
       ></Stats>
       <div>Today's activity</div>
-      <div>Chart stay durations</div>
-      <div>Char sale</div>
+      <DurationChart comfirmedStays={comfirmedStays}> </DurationChart>
+      <SalesChart bookings={bookings} numDays={numberDays}></SalesChart>
     </div>
   );
 }
